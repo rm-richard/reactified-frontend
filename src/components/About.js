@@ -21,6 +21,9 @@ const About = function() {
           <b><a href="https://reacttraining.com/react-router/web/guides/quick-start">React Router</a></b>, to manage the routes
         </List.Item>
         <List.Item>
+          <b><a href="https://react-hook-form.com/">React Hook Form</a></b>, for the create post form
+        </List.Item>
+        <List.Item>
           <b><a href="https://github.com/Semantic-Org/Semantic-UI-React">Semantic-UI-React</a></b>, for the clean look
         </List.Item>
       </List>

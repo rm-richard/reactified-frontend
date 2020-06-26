@@ -1,10 +1,10 @@
 import React from 'react';
 import {Switch, Route} from 'react-router-dom';
-import Listing from './home/Listing';
-import CreatePost from './home/CreatePost';
-import MainCategoryList from './home/MainCategoryList';
-import MainLayout from './home/MainLayout';
-import About from './home/About';
+import Listing from './components/Listing';
+import CreatePost from './components/CreatePost';
+import MainCategoryList from './components/MainCategoryList';
+import MainLayout from './components/MainLayout';
+import About from './components/About';
 
 function App() {
   return (

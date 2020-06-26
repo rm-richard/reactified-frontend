@@ -1,49 +1,6 @@
 import {combineReducers} from 'redux';
 import {CREATE_POST} from './actions';
-
-const defaultCategories = [
-  { id: 0, name: 'housing' },
-  { id: 1, name: 'jobs'}
-];
-
-const defaultSubCategories = [
-  // housing
-  {id: 1, categoryId: 0, name: 'apt / housing'},
-  {id: 2, categoryId: 0, name: 'room share'},
-  {id: 3, categoryId: 0, name: 'vacation rentals'},
-  {id: 4, categoryId: 0, name: 'office / commercial'},
-  {id: 5, categoryId: 0, name: 'parking / storage'},
-  // jobs
-  {id: 6, categoryId: 1, name: 'blue collar'},
-  {id: 7, categoryId: 1, name: 'white collar'},
-];
-
-const defaultPosts = [
-  {
-    title: 'Small house for sale',
-    description: 'sample description',
-    subCategoryId: 1,
-    date: new Date('2020-03-15'),
-  },
-  {
-    title: 'Another house for sale',
-    description: 'sample description 2',
-    subCategoryId: 1,
-    date: new Date('2020-03-17'),
-  },
-  {
-    title: 'Farm for sale',
-    description: 'sample description 3',
-    subCategoryId: 1,
-    date: new Date('2020-06-01'),
-  },
-  {
-    title: 'Room for rent',
-    description: 'room for rent description',
-    subCategoryId: 2,
-    date: new Date('2020-04-23'),
-  }
-];
+import {defaultCategories, defaultSubCategories, defaultPosts} from './sampleData.js';
 
 function categories(state = defaultCategories, action) {
   return state;
