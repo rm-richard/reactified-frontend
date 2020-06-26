@@ -11,7 +11,7 @@ function Home() {
       <Message success icon="thumbs up" header="Alles gucci" content="Home page renders." />
       <Card.Group>
         {categories.map(category => (
-          <Category key={category.name} category={category} />
+          <Category key={category.id} category={category} />
         ))}
       </Card.Group>
     </Container>

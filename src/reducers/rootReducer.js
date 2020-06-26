@@ -1,47 +1,50 @@
 import {combineReducers} from 'redux';
 
 const defaultCategories = [
-  {
-    name: 'housing', subCategories: [
-      {id: 1, name: 'apt / housing'},
-      {id: 2, name: 'room share'},
-      {id: 3, name: 'vacation rentals'},
-      {id: 4, name: 'office / commercial'},
-      {id: 5, name: 'parking / storage'},
-    ]
-  },
-  {
-    name: 'jobs', subCategories: [
-      {id: 6, name: 'blue collar'},
-      {id: 7, name: 'white collar'},
-    ]
-  }
+  { id: 0, name: 'housing' },
+  { id: 1, name: 'jobs'}
+];
+
+const defaultSubCategories = [
+  // housing
+  {id: 1, categoryId: 0, name: 'apt / housing'},
+  {id: 2, categoryId: 0, name: 'room share'},
+  {id: 3, categoryId: 0, name: 'vacation rentals'},
+  {id: 4, categoryId: 0, name: 'office / commercial'},
+  {id: 5, categoryId: 0, name: 'parking / storage'},
+  // jobs
+  {id: 6, categoryId: 1, name: 'blue collar'},
+  {id: 7, categoryId: 1, name: 'white collar'},
 ];
 
 const defaultPosts = [
   {
     title: 'Small house for sale',
     description: 'sample description',
-    subCategory: 'apt / housing'
+    subCategoryId: 1
   },
   {
     title: 'Another house for sale',
     description: 'sample description 2',
-    subCategory: 'apt / housing'
+    subCategoryId: 1
   },
   {
     title: 'Farm for sale',
     description: 'sample description 3',
-    subCategory: 'apt / housing'
+    subCategoryId: 1
   },
   {
     title: 'Room for rent',
     description: 'room for rent description',
-    subCategory: 'room share'
+    subCategoryId: 2
   }
 ];
 
 function categories(state = defaultCategories, action) {
+  return state;
+}
+
+function subCategories(state = defaultSubCategories, action) {
   return state;
 }
 
@@ -50,5 +53,5 @@ function posts(state = defaultPosts, action) {
 }
 
 export default combineReducers({
-  categories, posts
+  categories, subCategories, posts
 });

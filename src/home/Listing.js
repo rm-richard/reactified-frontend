@@ -4,27 +4,15 @@ import {Link} from 'react-router-dom';
 import {Container, Header, List} from 'semantic-ui-react';
 import Post from './Post';
 
-function findCategoryById(id, categories) {
-  for (let category of categories) {
-    for (let subcategory of category.subCategories) {
-      if (subcategory.id == id) {
-        return [category, subcategory];
-      }
-    }
-  }
-  return [null, null];
-}
-
-function findPostsBySubCategory(posts, subCategory) {
-  return posts.filter(post => post.subCategory == subCategory.name);
-}
-
 const Listing = function(props) {
   const categories = useSelector(state => state.categories);
+  const subCategories = useSelector(state => state.subCategories);
   const posts = useSelector(state => state.posts);
   const id = props.match.params.categoryId;
-  const [category, subCategory] = findCategoryById(id, categories);
-  const visiblePosts = findPostsBySubCategory(posts, subCategory);
+
+  const subCategory = subCategories.find(s => s.id == id);
+  const category = categories.find(c => c.id === subCategory.categoryId);
+  const visiblePosts = posts.filter(p => p.subCategoryId === subCategory.id);
 
   return (
     <Container text>
