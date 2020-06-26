@@ -1,6 +1,6 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
-import {Link} from 'react-router-dom';
+import {Link, Redirect} from 'react-router-dom';
 import {Container, Header, List} from 'semantic-ui-react';
 import Post from './Post';
 
@@ -10,7 +10,12 @@ const Listing = function(props) {
   const posts = useSelector(state => state.posts);
   const id = props.match.params.categoryId;
 
-  const subCategory = subCategories.find(s => s.id == id);
+  const subCategory = subCategories.find(s => s.id === parseInt(id));
+
+  if (!subCategory) {
+    return <Redirect to="/" />
+  }
+
   const category = categories.find(c => c.id === subCategory.categoryId);
   const visiblePosts = posts.filter(p => p.subCategoryId === subCategory.id);
 
