@@ -1,4 +1,5 @@
 import {combineReducers} from 'redux';
+import {CREATE_POST} from './actions';
 
 const defaultCategories = [
   { id: 0, name: 'housing' },
@@ -21,22 +22,26 @@ const defaultPosts = [
   {
     title: 'Small house for sale',
     description: 'sample description',
-    subCategoryId: 1
+    subCategoryId: 1,
+    date: new Date('2020-03-15'),
   },
   {
     title: 'Another house for sale',
     description: 'sample description 2',
-    subCategoryId: 1
+    subCategoryId: 1,
+    date: new Date('2020-03-17'),
   },
   {
     title: 'Farm for sale',
     description: 'sample description 3',
-    subCategoryId: 1
+    subCategoryId: 1,
+    date: new Date('2020-06-01'),
   },
   {
     title: 'Room for rent',
     description: 'room for rent description',
-    subCategoryId: 2
+    subCategoryId: 2,
+    date: new Date('2020-04-23'),
   }
 ];
 
@@ -49,7 +54,12 @@ function subCategories(state = defaultSubCategories, action) {
 }
 
 function posts(state = defaultPosts, action) {
-  return state;
+  switch (action.type) {
+    case CREATE_POST:
+      return [...state, action.post]
+    default:
+      return state;
+  }
 }
 
 export default combineReducers({

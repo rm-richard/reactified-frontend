@@ -3,6 +3,7 @@ import {useSelector} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
 import {Container, Header, List} from 'semantic-ui-react';
 import Post from './Post';
+import SubpageHeader from './SubpageHeader';
 
 const Listing = function(props) {
   const categories = useSelector(state => state.categories);
@@ -17,14 +18,13 @@ const Listing = function(props) {
   }
 
   const category = categories.find(c => c.id === subCategory.categoryId);
-  const visiblePosts = posts.filter(p => p.subCategoryId === subCategory.id);
+  const visiblePosts = posts
+    .filter(p => p.subCategoryId === subCategory.id)
+    .sort((p1, p2) => p2.date - p1.date);
 
   return (
     <Container text>
-      <Header as="h4">
-        <Link to="/">{"<< Home"}</Link>
-      </Header>
-      <Header as="h2">{category.name} {" > "} {subCategory.name}</Header>
+      <SubpageHeader title={category.name + " > " + subCategory.name} />
       <List divided ordered>
         {visiblePosts.map(post => (
           <Post key={post.title} post={post} />
