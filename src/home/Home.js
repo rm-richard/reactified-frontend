@@ -1,7 +1,7 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
-import {Container, Grid, Message, Card, Segment, Header} from 'semantic-ui-react';
+import {Container, Grid, Card, Segment, Header, List} from 'semantic-ui-react';
 import Category from './Category';
 
 function Home() {
@@ -13,10 +13,17 @@ function Home() {
         <Grid.Column width={4} stretched>
           <Segment secondary textAlign="center">
             <Header as="h1">
-              reactified
+              <Link to="/">reactified</Link>
             </Header>
             <Header as="h4">
-              <Link to="/createPost">create a post</Link>
+              <List relaxed>
+                <List.Item>
+                  <Link style={{background: 'yellow'}} to="/createPost">create a post</Link>
+                </List.Item>
+                <List.Item>
+                  <Link to="/createPost">about</Link>
+                </List.Item>
+              </List>
             </Header>
           </Segment>
         </Grid.Column>

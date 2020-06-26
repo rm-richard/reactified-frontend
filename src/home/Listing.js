@@ -1,7 +1,7 @@
 import React from 'react';
 import {useSelector} from 'react-redux';
-import {Link, Redirect} from 'react-router-dom';
-import {Container, Header, List} from 'semantic-ui-react';
+import {Redirect} from 'react-router-dom';
+import {Container, List} from 'semantic-ui-react';
 import Post from './Post';
 import SubpageHeader from './SubpageHeader';
 

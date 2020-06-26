@@ -3,8 +3,8 @@ import {useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {createPost} from '../reducers/actions';
 import {useForm} from 'react-hook-form';
-import {Link, Redirect} from 'react-router-dom';
-import {Container, Form, Button, Segment, Dropdown, Divider} from 'semantic-ui-react';
+import {Redirect} from 'react-router-dom';
+import {Container, Form, Button, Divider} from 'semantic-ui-react';
 import SubpageHeader from './SubpageHeader';
 
 
@@ -43,7 +43,7 @@ const CreatePost = function(props) {
   }
 
   return (
-    <Container text>
+    <Container fluid>
       {createdPost &&
         <Redirect to={"/listing/" + selectedSubCategoryId} />
       }
